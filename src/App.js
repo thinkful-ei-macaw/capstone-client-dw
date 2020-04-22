@@ -8,6 +8,7 @@ import Signup from  './Main/Signup';
 import {Route} from 'react-router-dom';
 import List from './Main/List';
 import CardList from './Main/CardList';
+import Navbar from './Main/Navbar';
 
 
 class App extends Component {
@@ -15,7 +16,6 @@ class App extends Component {
   render(){
   return (
     <div className="App">
-    
      <Route exact path={"/"} component={LandingPage} />
      <Route path={"/new-project"} component={NewProjectForm} />
      <Route path={"/new-card/:projectId"} component={NewCardForm} />

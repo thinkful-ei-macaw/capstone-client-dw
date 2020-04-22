@@ -7,7 +7,7 @@ export default class NewCardForm extends React.Component {
         const question = e.target.question.value;
         const answer = e.target.answer.value;
         const form = e.target;
-        fetch(`http://localhost:8000/api/cards/${this.props.matchm}`,{
+        fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
             method:"post",
             headers:{
                 "content-type": "application/json"

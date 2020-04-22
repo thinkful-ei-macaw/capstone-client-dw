@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 export default class NewProjectForm extends React.Component {
     submitProject = (e) => {
@@ -16,8 +15,8 @@ export default class NewProjectForm extends React.Component {
             })
         })
         .then(res => res.json())
-        .then(data => {
-            this.props.history.push("/new-card")
+        .then(data => {console.log(data);
+            this.props.history.push("/new-card/"+data[0])
         })
     };
 
@@ -27,9 +26,8 @@ export default class NewProjectForm extends React.Component {
                 <label>
                     Project Name:
                     <input type="text" name="projectName" />
+                    <input type="submit" value="Submit"/>
                 </label>
-                <Link to = "/new-card/:projectId" className= "begin">Begin</Link>
-
             </form>
          
         );
@@ -37,3 +35,6 @@ export default class NewProjectForm extends React.Component {
 }
 
   // <input type="submit" value="Submit" />
+   // <Link to = "/new-card/:projectId" className= "begin">Begin</Link>
+// //    fetch("http://localhost:8000/api/projects"
+// <Link to = {'/card-list/'+this.props.match.params.projectId}>Add Card</Link>
