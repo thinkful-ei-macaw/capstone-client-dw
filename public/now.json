@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "alias":"[desmond]-flash",
+    "name": "flash",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+  }

@@ -1,0 +1,27 @@
+.App {
+    margin-top: 60px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 450px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    color: #555555;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #555555;
+}
+
+.nav a:hover {
+    background-color: #555555;
+    color: #FFFFFF;
+    transition: all .2s;
+}
