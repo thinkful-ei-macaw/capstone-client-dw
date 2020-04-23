@@ -16,7 +16,13 @@ export default class CardList extends Component{
             flipCard:id
         })
     }
-    // nextCard
+    nextCard=()=>{
+        this.setState({
+            cardsOrder:this.cardsOrder++
+            
+
+        })
+    }
    
     getCard = () => {
         fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
@@ -77,8 +83,8 @@ const card=this.state.cards[this.state.cardsOrder] || {}
          <p><button onClick={e=>this.handleFlipCard()}>Click to flip</button>
          {card.answer}</p>
          </ReactCardFlip>
-         <button onClick={e=>this.nextCard()} className="next-button">Next</button>
-         <button onClick={e=>this.previousCard()} className="previous-button">Next</button>
+         <button onClick={e=>this.nextCard(cardsOrder)} className="next-button">Next</button>
+       
 
          </li>
      
@@ -94,7 +100,7 @@ const card=this.state.cards[this.state.cardsOrder] || {}
 // }
 
 
-
+ //  <button onClick={e=>this.previousCard()} className="previous-button">Next</button>
 
 
 
