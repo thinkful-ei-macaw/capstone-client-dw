@@ -1,11 +1,15 @@
 import React from 'react';
+import config from  '../config';
+
+
 
 export default class NewProjectForm extends React.Component {
     submitProject = (e) => {
         e.preventDefault();
         const name = e.target.projectName.value;
         console.log(name);
-        fetch("http://localhost:8000/api/projects",{
+        // fetch("http://localhost:8000/api/projects",{
+           fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"post",
             headers:{
                 "content-type": "application/json"
@@ -15,7 +19,7 @@ export default class NewProjectForm extends React.Component {
             })
         })
         .then(res => res.json())
-        .then(data => {console.log(data);
+        .then(data => {
             this.props.history.push("/new-card/"+data[0])
         })
     };
@@ -33,8 +37,3 @@ export default class NewProjectForm extends React.Component {
         );
     }
 }
-
-  // <input type="submit" value="Submit" />
-   // <Link to = "/new-card/:projectId" className= "begin">Begin</Link>
-// //    fetch("http://localhost:8000/api/projects"
-// <Link to = {'/card-list/'+this.props.match.params.projectId}>Add Card</Link>

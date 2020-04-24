@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './NewCardForm.css';
+import config from  '../config';
+
 
 export default class NewCardForm extends React.Component {
     submitCard = (e) => {
@@ -7,7 +10,8 @@ export default class NewCardForm extends React.Component {
         const question = e.target.question.value;
         const answer = e.target.answer.value;
         const form = e.target;
-        fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+        // fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+            fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
             method:"post",
             headers:{
                 "content-type": "application/json"
@@ -40,7 +44,7 @@ export default class NewCardForm extends React.Component {
                 </label>
                 <input type="submit" value="Submit" />
                 </form>
-            <Link to = "/list">Done</Link>
+            <Link to = "/list" className="listSubmit">Done</Link>
             </>
         );
     }

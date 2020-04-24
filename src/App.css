@@ -23,6 +23,8 @@
   text-align: center;
   border: 3px solid #000000;
   box-sizing: border-box;
+  
+  
 }
 
 h1 {
@@ -30,7 +32,7 @@ h1 {
 }
 
 .button-list a {
-  background-color: #61dafb;
+  background-color: #90D7FF;
   margin: 0 5px;
   padding: 5px 10px;
   color: #000000;
@@ -42,9 +44,9 @@ h1 {
   background-color: #a2ebff;
   transition: all .2s;
 }
-
+/* 
 @media all and (max-width: 767px) {
 
   .App { border: 0; }
 
-}
+} */

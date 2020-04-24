@@ -1,5 +1,7 @@
 import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
+import './List.css';
+import config from  '../config';
 
 export default class List extends Component{
     state={
@@ -9,7 +11,8 @@ export default class List extends Component{
         this.getProject()
     }
     getProject = () => {
-        fetch("http://localhost:8000/api/projects",{
+        // fetch("http://localhost:8000/api/projects",{
+            fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"get",
             headers:{
                 "content-type": "application/json"

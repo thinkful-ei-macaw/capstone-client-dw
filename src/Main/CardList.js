@@ -1,6 +1,9 @@
 import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
 import ReactCardFlip from 'react-card-flip';
+import './CardList.css';
+import config from  '../config';
+
 
 export default class CardList extends Component{
     state={
@@ -17,16 +20,22 @@ export default class CardList extends Component{
         })
     }
     nextCard=()=>{
-        this.setState({cardsOrder:this.cardsOrder+1})
-    }
-    // nextCard=()=>{
-    //     fetch(
+        
+        if(this.state.cardsOrder>=this.state.cards.length){
+            this.props.history.push("/list")
+        }else{
+            return  this.setState({cardsOrder:this.state.cardsOrder+1});
+        }};
+    // previousCard=()=>{
+    //     this.setState({cardsOrder:this.state.cardsOrder-1});
+    //  <button onClick={e=>this.previousCard(card)} className="back-button">Previous</button>
+    // }Next Card and Previous Card will be updated to loop continuously.
+    
+  
 
-    //     )
-    // }
-   
     getCard = () => {
-        fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+        // fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+            fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
             method:"get",
             headers:{
                 "content-type": "application/json"
@@ -48,26 +57,33 @@ export default class CardList extends Component{
         })
     };
     deleteProject = () => {
-        fetch(`http://localhost:8000/api/projects/${this.props.match.params.projectId}`,{
+        // fetch(`http://localhost:8000/api/projects/${this.props.match.params.projectId}`,{
+            fetch(`${config.API_ENDPOINT}/api/projects/${this.props.match.params.projectId}`,{
             method: "delete",
             headers:{
                 "content-type": "application/json"
             },
         })
         .then(data => {
-           this.props.history.push("/list")
+           this.props.history.push("/")
         })
     };
     deleteCard = (id) => {
-        fetch(`http://localhost:8000/api/cards/${id}`,{
+        // fetch(`http://localhost:8000/api/cards/${id}`,{
+            fetch(`${config.API_ENDPOINT}/api/cards/${id}`,{
             method: "delete",
             headers:{
                 "content-type": "application/json"
             },
         })
         .then(data => {
+             
+        if(this.state.cards.length===0){
+           this.deleteProject()
+        }else{
            this.getCard()
-        })
+        }
+    })
     };
 
     render(){
@@ -78,74 +94,24 @@ const card=this.state.cards[this.state.cardsOrder] || {}
     
          <li>
          <ReactCardFlip isFlipped={this.state.flipCard===card.id} flipDirection="vertical">
-         <p><button onClick={e=>this.handleFlipCard(card.id)}>Click to flip</button>
-         <button onClick={e => this.deleteCard(card.id)} className="deleteCards">Delete a Card</button>
+         <p className="cardFlip"><button onClick={e=>this.handleFlipCard(card.id)}>Flip Me</button>
+
          {card.question}</p>
-         <p><button onClick={e=>this.handleFlipCard()}>Click to flip</button>
+         <p className="cardFlip"><button onClick={e=>this.handleFlipCard()}>Flip Me</button>
          {card.answer}</p>
          </ReactCardFlip>
          <button onClick={e=>this.nextCard(card)} className="next-button">Next</button>
-       
+      
 
          </li>
      
+     
 
-     <Link to = {'/new-card/'+this.props.match.params.projectId}>Add More Cards</Link>
-     <button onClick={this.deleteProject} className="delete">Delete</button>
+    
+     <button className="card-buttons" onClick={this.deleteProject}>Delete Project</button>
+     <Link id="card-link" className="card-buttons" to = {'/new-card/'+this.props.match.params.projectId}>Add More Cards</Link>
+     <button className="card-buttons" onClick={e => this.deleteCard(card.id)}>Delete a Card</button>
      </div>
     )
 }
 }
-// getRandomCard(currentCards){
-//     let card = currentCards[Math.floor(Math.random()*currentCards.length)]
-// }
-
-
- //  <button onClick={e=>this.previousCard()} className="previous-button">Next</button>
-
-
-
-// import React, {Component}  from 'react';
-// import {Link} from 'react-router-dom';
-
-// export default class CardList extends Component{
-//     state={
-//         cards:[]
-//     }
-//     componentDidMount(){
-//         this.getCard()
-//     }
-//     getCard = () => {
-//         fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
-//             method:"get",
-//             headers:{
-//                 "content-type": "application/json"
-//             } ,
-//         })
-//         .then(res => res.json())
-//         .then(data => {
-//            this.setState({
-//                cards:data
-//            })
-//         })
-//     };
-
-//     render(){
-    
-
-//     return(
-//      <div>
-//      {this.state.cards.map(card => (
-//          <>
-//          <li>{card.question}</li>
-//          <li>{card.answer}</li>
-//          </>
-//      ))}
-
-//      <Link to = {'/new-card/'+this.props.match.params.projectId}>Add Card</Link>
-//      </div>
-//     )
-// }
-// }
-
-
