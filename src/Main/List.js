@@ -11,8 +11,8 @@ export default class List extends Component{
         this.getProject()
     }
     getProject = () => {
-        // fetch("http://localhost:8000/api/projects",{
-            fetch(`${config.API_ENDPOINT}/api/projects`,{
+        fetch("http://localhost:8000/api/projects",{
+            // fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"get",
             headers:{
                 "content-type": "application/json"

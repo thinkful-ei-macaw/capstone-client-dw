@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
 import ReactCardFlip from 'react-card-flip';
-// import './CardList.css';
+import './CardList.css';
 import config from  '../config';
 
 
@@ -34,8 +34,8 @@ export default class CardList extends Component{
   
 
     getCard = () => {
-        // fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
-            fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
+        fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+            // fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
             method:"get",
             headers:{
                 "content-type": "application/json"
@@ -57,8 +57,8 @@ export default class CardList extends Component{
         })
     };
     deleteProject = () => {
-        // fetch(`http://localhost:8000/api/projects/${this.props.match.params.projectId}`,{
-            fetch(`${config.API_ENDPOINT}/api/projects/${this.props.match.params.projectId}`,{
+        fetch(`http://localhost:8000/api/projects/${this.props.match.params.projectId}`,{
+            // fetch(`${config.API_ENDPOINT}/api/projects/${this.props.match.params.projectId}`,{
             method: "delete",
             headers:{
                 "content-type": "application/json"
@@ -69,8 +69,8 @@ export default class CardList extends Component{
         })
     };
     deleteCard = (id) => {
-        // fetch(`http://localhost:8000/api/cards/${id}`,{
-            fetch(`${config.API_ENDPOINT}/api/cards/${id}`,{
+        fetch(`http://localhost:8000/api/cards/${id}`,{
+            // fetch(`${config.API_ENDPOINT}/api/cards/${id}`,{
             method: "delete",
             headers:{
                 "content-type": "application/json"

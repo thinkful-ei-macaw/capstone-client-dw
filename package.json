@@ -10,6 +10,7 @@
     "react-browser-router": "^2.1.2",
     "react-card-flip": "^1.0.10",
     "react-dom": "^16.13.1",
+    "react-favicon": "0.0.18",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
@@ -18,8 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"now ./build",
+    "predeploy": "npm run build",
+    "deploy": "now ./build",
     "postdeploy": "now alias -A ./build/now.json"
   },
   "eslintConfig": {

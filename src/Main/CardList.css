@@ -1,0 +1,33 @@
+.card-buttons{
+    background-color: #90D7FF;
+    margin: 15px 5px;
+    padding: 3px 10px;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    border:0;
+    font-size: inherit;
+}
+
+.next-button{
+    background-color: #90D7FF;
+    padding:3px;
+    border:0;
+    font: inherit;
+}
+.next-button:hover{
+    background-color:  #a2ebff;;
+}
+.cardFlip button{
+    background-color: #fffa90;
+    margin: 3px;
+    border:0;
+    font:inherit;
+}
+.cardFlip button:hover{
+    background-color:#ff90AA;
+
+}
+.card-buttons:hover{
+    background-color:  #a2ebff;
+}
