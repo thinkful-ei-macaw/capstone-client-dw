@@ -10,8 +10,8 @@ export default class NewCardForm extends React.Component {
         const question = e.target.question.value;
         const answer = e.target.answer.value;
         const form = e.target;
-        fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
-            // fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
+        // fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
+            fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
             method:"post",
             headers:{
                 "content-type": "application/json"
@@ -28,7 +28,7 @@ export default class NewCardForm extends React.Component {
 
         })
         .catch(err =>console.log(err))
-        // e.target.reset();
+     
     };
     render() {
         return (

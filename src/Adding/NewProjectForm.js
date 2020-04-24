@@ -8,8 +8,8 @@ export default class NewProjectForm extends React.Component {
         e.preventDefault();
         const name = e.target.projectName.value;
         console.log(name);
-        fetch("http://localhost:8000/api/projects",{
-        //    fetch(`${config.API_ENDPOINT}/api/projects`,{
+        // fetch("http://localhost:8000/api/projects",{
+           fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"post",
             headers:{
                 "content-type": "application/json"
