@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
 import ReactCardFlip from 'react-card-flip';
-import './CardList.css';
+// import './CardList.css';
 import config from  '../config';
 
 
