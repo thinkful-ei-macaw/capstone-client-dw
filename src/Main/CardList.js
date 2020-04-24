@@ -17,12 +17,13 @@ export default class CardList extends Component{
         })
     }
     nextCard=()=>{
-        this.setState({
-            cardsOrder:this.cardsOrder++
-            
-
-        })
+        this.setState({cardsOrder:this.cardsOrder+1})
     }
+    // nextCard=()=>{
+    //     fetch(
+
+    //     )
+    // }
    
     getCard = () => {
         fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
@@ -32,7 +33,7 @@ export default class CardList extends Component{
             } ,
         })
         .then(res => res.json())
-        .then(data => {
+        .then(data => {console.log(data);
            for(let i =0;i<data.length;i++){
          const number=Math.floor(Math.random()*data.length);
          const temp=data[i];
@@ -83,14 +84,14 @@ const card=this.state.cards[this.state.cardsOrder] || {}
          <p><button onClick={e=>this.handleFlipCard()}>Click to flip</button>
          {card.answer}</p>
          </ReactCardFlip>
-         <button onClick={e=>this.nextCard(cardsOrder)} className="next-button">Next</button>
+         <button onClick={e=>this.nextCard(card)} className="next-button">Next</button>
        
 
          </li>
      
 
      <Link to = {'/new-card/'+this.props.match.params.projectId}>Add More Cards</Link>
-     <button onClick={this.deleteProject} class="delete">Delete</button>
+     <button onClick={this.deleteProject} className="delete">Delete</button>
      </div>
     )
 }
