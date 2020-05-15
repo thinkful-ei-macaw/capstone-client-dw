@@ -10,7 +10,6 @@ export default class NewCardForm extends React.Component {
         const question = e.target.question.value;
         const answer = e.target.answer.value;
         const form = e.target;
-        // fetch(`http://localhost:8000/api/cards/${this.props.match.params.projectId}`,{
             fetch(`${config.API_ENDPOINT}/api/cards/${this.props.match.params.projectId}`,{
             method:"post",
             headers:{
@@ -28,12 +27,12 @@ export default class NewCardForm extends React.Component {
 
         })
         .catch(err =>console.log(err))
-     
     };
+
     render() {
         return (
             <>
-            <form onSubmit={this.submitCard}>
+            <form class="newForm" onSubmit={this.submitCard}>
                 <label className="q">
                     Question:
                     <input type="text" name="question" required/>
@@ -42,7 +41,7 @@ export default class NewCardForm extends React.Component {
                     Answer:
                     <input type="text" name="answer" required/>
                 </label>
-                <input type="submit" value="Submit" />
+                <button type="submit">Submit</button>
                 </form>
             <Link to = "/list" className="listSubmit">Done</Link>
             </>

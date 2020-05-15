@@ -7,8 +7,6 @@ export default class NewProjectForm extends React.Component {
     submitProject = (e) => {
         e.preventDefault();
         const name = e.target.projectName.value;
-        console.log(name);
-        // fetch("http://localhost:8000/api/projects",{
            fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"post",
             headers:{
@@ -26,7 +24,7 @@ export default class NewProjectForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.submitProject}>
+            <form class="newform" onSubmit={this.submitProject}>
                 <label>
                     Project Name:
                     <input type="text" name="projectName" required/>

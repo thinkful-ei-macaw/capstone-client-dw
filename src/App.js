@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import LandingPage from './Main/LandingPage';
-import NewProjectForm from './Adding/NewProjectForm';
-import NewCardForm from './Adding/NewCardForm';
+import LandingPage from './LandingPage/LandingPage';
+import NewProjectForm from './NewProjectForm/NewProjectForm';
+import NewCardForm from './NewCardForm/NewCardForm';
 import {Route} from 'react-router-dom';
-import List from './Main/List';
-import CardList from './Main/CardList';
-import Navbar from './Main/Navbar';
+import List from './ProjectList/List';
+import CardList from './CardList/CardList';
+import Navbar from './Navbar/Navbar';
+import ProjectManager from './ProjectManager/ProjectManager';
 
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
      <Route path={"/new-card/:projectId"} component={NewCardForm} />
      <Route path={"/list"} component={List} />
      <Route path={"/card-list/:projectId"} component={CardList} />
-   
+     <Route path={"/project-manager/:projectId"} component={ProjectManager} />
+
     </div>
   );
 }

@@ -1,9 +1,10 @@
 .listSubmit{
-    background-color: #90D7FF;
+    background-color: #ff90AA;
     text-decoration: none;
+    border: solid black;
 }
 .listSubmit:hover {
-    background-color: #ff90AA;
+    background-color: #fffa90;
     transition: all .2s;
   }
   

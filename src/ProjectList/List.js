@@ -11,7 +11,6 @@ export default class List extends Component{
         this.getProject()
     }
     getProject = () => {
-        // fetch("http://localhost:8000/api/projects",{
             fetch(`${config.API_ENDPOINT}/api/projects`,{
             method:"get",
             headers:{
@@ -33,7 +32,11 @@ export default class List extends Component{
      <div>
      {this.state.projects.map(project => (
          <li key={project.id}>{project.project_name} 
-         <Link to = {"/card-list/"+project.id} className="viewCards">Click Me</Link></li>
+         <Link to = {"/card-list/"+project.id} className="viewCards">View</Link>
+         <Link to = {"/project-manager/"+project.id} className="viewCards">Edit Project</Link>
+
+         </li>
+
      ))}
      </div>
     )
