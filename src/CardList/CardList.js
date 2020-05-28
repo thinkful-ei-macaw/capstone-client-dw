@@ -21,7 +21,7 @@ export default class CardList extends Component{
     }
 
     nextCard=()=>{
-        if(this.state.cardsOrder>=this.state.cards.length){
+        if(this.state.cardsOrder===this.state.cards.length-1){
             this.props.history.push("/list")
         }
         else
